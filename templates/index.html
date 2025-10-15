@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>🏠 House Price Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(120deg, #eb74cb, #e1a3c0);
+            height: 150vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+        .container {
+            background: #fff;
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            width: 450px;
+            height: 100%;
+            text-align: center;
+        }
+        h2 {
+            margin-top: 20px;
+            color: #333;
+        }
+        label {
+            display: block;
+            text-align: left;
+            margin: 10px 0 5px;
+            font-weight: bold;
+            color: #444;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            outline: none;
+            transition: 0.3s;
+        }
+        input:focus, select:focus {
+            border-color: #d9759d;
+            box-shadow: 0 0 5px rgba(58, 58, 61, 0.5);
+        }
+        button {
+            width: 100%;
+            background: #dc5795;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background: #ab2d5b;
+        }
+        .prediction {
+            margin-top: 20px;
+            
+            padding: 10px;
+            border-radius: 8px;
+            background: #ea4d84;
+            color: #222;
+            font-weight: bold;
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>🏠 House Price Prediction</h2>
+        <form action="/predict" method="post">
+            <label>Longitude</label>
+            <input type="number" step="any" name="longitude" required>
+
+            <label>Latitude</label>
+            <input type="number" step="any" name="latitude" required>
+
+            <label>Median Age of House</label>
+            <input type="number" step="any" name="housing_median_age" required>
+
+            <label>Total Rooms</label>
+            <input type="number" step="any" name="total_rooms" required>
+
+            <label>Total Bedrooms</label>
+            <input type="number" step="any" name="total_bedrooms" required>
+
+            <label>Population</label>
+            <input type="number" step="any" name="population" required>
+
+            <label>Households</label>
+            <input type="number" step="any" name="households" required>
+
+            <label>Median Income</label>
+            <input type="number" step="any" name="median_income" required>
+
+            <label>Ocean Proximity</label>
+            <select name="ocean_proximity" required>
+                <option value="<1H OCEAN"><1H OCEAN</option>
+                <option value="INLAND">INLAND</option>
+                <option value="ISLAND">ISLAND</option>
+                <option value="NEAR BAY">NEAR BAY</option>
+                <option value="NEAR OCEAN">NEAR OCEAN</option>
+            </select>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction_text %}
+        <div class="prediction">
+            {{ prediction_text }}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

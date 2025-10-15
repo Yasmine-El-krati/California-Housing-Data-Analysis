@@ -6,4 +6,5 @@ Extracted features, removed outliers and trained a Random Forest Regressor on th
 
 Plan to develop full stack web application that allows users to get price estimates on California houses.
 
-Created a way for users to access this model on a website. Used Flask as the backend to load the model. Currently in the process of hosting the website. The link will be available here soon
+Created a way for users to access this model on a website. Used Flask as the backend to load the model
+
